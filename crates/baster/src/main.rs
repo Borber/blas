@@ -1,20 +1,16 @@
 mod controller;
 mod handler;
-mod model;
 mod resp;
 
 use anyhow::Result;
-use axum::{
-    routing::{get, post},
-    Router,
-};
+use axum::{routing::post, Router};
 use tower_http::cors::{Any, CorsLayer};
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let router = Router::new()
         .route("/", post(controller::register::add))
-        .route("/init", get(controller::script::init))
+        .route("/beat", post(controller::register::beat))
         .layer(
             CorsLayer::new()
                 .allow_origin(Any)

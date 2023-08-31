@@ -138,6 +138,7 @@ dependencies = [
  "anyhow",
  "axum",
  "axum-extra",
+ "model",
  "openssl",
  "serde",
  "tokio",
@@ -162,6 +163,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "gethostname",
+ "model",
  "once_cell",
  "openssl",
  "reqwest",
@@ -553,6 +555,13 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys",
+]
+
+[[package]]
+name = "model"
+version = "0.1.0"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
