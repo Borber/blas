@@ -20,9 +20,9 @@ async fn main() -> Result<()> {
 
     let handler = tokio::spawn(async move {
         loop {
-            println!("Current Tasks: {:?}", context!().tasks);
-            let tasks = context!().tasks.info();
+            println!("Current Tasks: {:?}", context!().tasks.info());
 
+            let tasks = { context!().tasks.info() };
             let resp = CLIENT
                 .post(format!("{BASE}/beat"))
                 .json(&RegisterBeatDTO { list: tasks })
@@ -33,7 +33,7 @@ async fn main() -> Result<()> {
                 .await
                 .unwrap();
 
-            println!("Beat stdout: {}", resp.data.unwrap());
+            println!("Beat: {}", resp.data.unwrap());
             tokio::time::sleep(tokio::time::Duration::from_secs(3)).await;
         }
     });

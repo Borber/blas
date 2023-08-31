@@ -29,9 +29,6 @@ pub async fn aaa(blave: &Blave) -> Vec<Task> {
 }
 
 async fn add(blave: &Blave) -> Result<Vec<Task>> {
-    println!("host: {}", blave.host);
-    let resp = CLIENT.post(BASE).json(blave).send().await?.text().await?;
-    println!("resp: {}", resp);
     let resp = CLIENT
         .post(BASE)
         .json(blave)

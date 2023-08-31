@@ -48,9 +48,12 @@ impl Tasks {
         self.list
             .lock()
             .iter()
-            .map(|task| TasksInfo {
-                name: task.lock().name.clone(),
-                version: task.lock().version.clone(),
+            .map(|task| {
+                let task_lock = task.lock();
+                TasksInfo {
+                    name: task_lock.name.clone(),
+                    version: task_lock.version.clone(),
+                }
             })
             .collect()
     }
