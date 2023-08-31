@@ -6,14 +6,19 @@ pub struct RegisterAddDTO {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct RegisterBeatDTO {
-    pub list: Vec<RegisterBeatBean>,
+pub struct TasksInfo {
+    pub name: String,
+    pub version: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct RegisterBeatBean {
-    pub name: String,
-    pub version: String,
+pub struct RegisterBeatDTO {
+    pub list: Vec<TasksInfo>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Blave {
+    pub host: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
